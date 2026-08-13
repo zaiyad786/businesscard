@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Business Card | Gcore</title>
+  <meta name="description" content="Digital business card — save my contact instantly." />
+
+  <!-- Social preview fallback. Crawlers don't run JS, so if you want a
+       personalized preview when the link is shared, edit these two tags
+       and og-image.png directly. Everything else stays in config.js. -->
+  <meta property="og:title" content="Gcore — Digital Business Card" />
+  <meta property="og:description" content="Tap to save my contact details instantly." />
+  <meta property="og:image" content="og-image.png" />
+  <meta property="og:type" content="profile" />
+  <meta name="theme-color" content="#0a0a0d" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="card" id="card">
+    <div class="avatar-wrap" id="avatar-wrap"></div>
+
+    <h1 class="name" id="name"></h1>
+    <p class="role" id="role"></p>
+    <p class="location" id="location" hidden></p>
+    <p class="tagline" id="tagline" hidden></p>
+
+    <button class="save-btn" id="save-contact" type="button">Save Contact</button>
+
+    <div class="actions" id="actions"></div>
+
+    <div class="utility-row">
+      <button class="utility-btn" id="share-btn" type="button" aria-label="Share this card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7a2.9 2.9 0 0 0 0-1.4l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 1 0-3-3c0 .24.03.48.09.7L8.04 9.81a3 3 0 1 0 0 4.38l7.13 4.16c-.05.21-.08.43-.08.65a3 3 0 1 0 3-3z"/></svg>
+        Share
+      </button>
+      <span class="utility-dot">·</span>
+      <button class="utility-btn" id="qr-btn" type="button" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3V3zm2 2v3h3V5H5zm9-2h7v7h-7V3zm2 2v3h3V5h-3zM3 14h7v7H3v-7zm2 2v3h3v-3H5zm11-2h2v2h-2v-2zm0 4h2v2h-2v-2zm4-4h2v2h-2v-2zm0 4h2v2h-2v-2zm-2 2h2v2h-2v-2z"/></svg>
+        Show QR
+      </button>
+    </div>
+
+    <p class="event-line" id="event-line" hidden>
+      <span id="event-text"></span>
+      <a id="event-link" href="#" hidden>Let's meet →</a>
+    </p>
+
+    <a class="more-link" id="more-link" href="#" target="_blank" rel="noopener" hidden>More about me →</a>
+
+    <footer class="footer">
+      <a class="gcore-brand" href="https://gcore.com" target="_blank" rel="noopener">Gcore</a>
+      <span>·</span>
+      <span id="footer-location"></span>
+    </footer>
+  </main>
+
+  <dialog id="qr-modal" aria-labelledby="qr-title">
+    <p class="qr-title" id="qr-title">Scan to open this card</p>
+    <img id="qr-image" alt="QR code linking to this digital business card" width="220" height="220" hidden />
+    <p id="qr-fallback" class="qr-fallback" hidden>
+      Couldn't load the QR code.
+      <button class="qr-copy-btn" id="qr-copy" type="button">Copy link instead</button>
+    </p>
+    <button class="qr-close-btn" id="qr-close" type="button">Close</button>
+  </dialog>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
