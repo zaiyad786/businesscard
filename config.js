@@ -33,7 +33,7 @@ const profile = {
   linkedin: "https://www.linkedin.com/in/zaiyadahmed",
 
   // URL to a professional headshot. Leave blank to show initials instead.
-  photo: "",
+  photo: "profile_round.png",
 
   // Company website — used for the vCard and the Gcore brand link.
   website: "https://gcore.com",
